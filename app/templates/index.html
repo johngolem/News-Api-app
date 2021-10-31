@@ -1,1 +1,19 @@
-<h1>message</h1>
+{% import 'macros.html' as macro %}
+
+<body>
+    <!-- News Title -->
+    <h3> News</h3>
+    <ul>
+        {{ macro.displayNewsList(title)}}
+    </ul>
+    <!-- Upcoming movie  -->
+    <h3> Content </h3>
+    <ul>
+        {{ macro.displayNewsList(content)}}
+    </ul>
+    <!-- Now showing movie -->
+    <h3>Description</h3>
+    <ul>
+        {{ macro.displayNewsList(description)}}
+    </ul>
+</body>
