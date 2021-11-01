@@ -1,16 +1,19 @@
-from app import app
 import urllib.request,json
 from .models import NewsSource
 
-# Getting api key
-api_key = app.config['NEWS_API_KEY']
-
-# Getting the movie base url
-base_url = app.config["BBC_NEWS_API_BASE_URL"]
 
 
+#Fetch API key
+api_key = None
+
+#Fetch News Base Url
+base_url = None
 
 
+def configure_request(app):
+    global api_key,base_url
+    api_key = app.config['NEWS_API_KEY']
+    base_url = app.config['BBC_NEWS_API_BASE_URL']
 
 def get_news():
     '''
@@ -26,7 +29,7 @@ def get_news():
         
         if get_news_response['sources']:
             news_result_list = get_news_response['sources']
-            sources_result = process_results(news_result_list)
+            news_result = process_results(news_result_list)
     return news_result
 
 
